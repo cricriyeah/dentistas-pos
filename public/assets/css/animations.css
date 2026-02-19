@@ -1,0 +1,193 @@
+/* =====================================================
+   animations.css — Overrides de animaciones Doclinic
+   Modifica aquí para ajustar velocidad y fluidez
+   ===================================================== */
+
+/* --------------------------------------------------
+   VARIABLES DE ANIMACIÓN
+   --------------------------------------------------
+   Velocidades recomendadas:
+     Rápida  : 0.15s
+     Normal  : 0.25s  ← usada aquí
+     Suave   : 0.35s
+     Lenta   : 0.5s
+
+   Spinner:
+     --spinner-color: cambia el color del aro
+     --spinner-size : cambia el tamaño del aro
+   -------------------------------------------------- */
+:root {
+    --anim-speed-fast: 0.15s;
+    --anim-speed-normal: 0.25s;
+    --anim-speed-slow: 0.4s;
+    --anim-ease-main: cubic-bezier(0.4, 0, 0.2, 1);
+    --anim-ease-enter: cubic-bezier(0.0, 0.0, 0.2, 1);
+    --anim-ease-exit: cubic-bezier(0.4, 0.0, 1, 1);
+
+    --spinner-size: 48px;
+    --spinner-thickness: 4px;
+    --spinner-color: #02A9D6;
+    --spinner-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* --------------------------------------------------
+   PAGE LOADER — Spinner tipo aro
+   -------------------------------------------------- */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--spinner-bg);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    transition: opacity 0.3s var(--anim-ease-exit),
+        visibility 0.3s var(--anim-ease-exit) !important;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-spinner {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border: var(--spinner-thickness) solid rgba(0, 0, 0, 0.08);
+    border-top-color: var(--spinner-color);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------------------------------------------
+   SIDEBAR y CONTENT-WRAPPER
+   Original: 0.3s ease-in-out
+   -------------------------------------------------- */
+.wrapper,
+.content-wrapper,
+.main-sidebar,
+.left-side,
+.main-footer,
+.main-header .logo,
+.main-header .navbar {
+    -webkit-transition: transform var(--anim-speed-normal) var(--anim-ease-main),
+        margin var(--anim-speed-normal) var(--anim-ease-main),
+        width var(--anim-speed-normal) var(--anim-ease-main) !important;
+    -moz-transition: transform var(--anim-speed-normal) var(--anim-ease-main),
+        margin var(--anim-speed-normal) var(--anim-ease-main),
+        width var(--anim-speed-normal) var(--anim-ease-main) !important;
+    -o-transition: transform var(--anim-speed-normal) var(--anim-ease-main),
+        margin var(--anim-speed-normal) var(--anim-ease-main),
+        width var(--anim-speed-normal) var(--anim-ease-main) !important;
+    transition: transform var(--anim-speed-normal) var(--anim-ease-main),
+        margin var(--anim-speed-normal) var(--anim-ease-main),
+        width var(--anim-speed-normal) var(--anim-ease-main) !important;
+}
+
+/* --------------------------------------------------
+   ÁNGULO DEL MENÚ (flecha accordion sidebar)
+   -------------------------------------------------- */
+.menu-open .fa-angle-left,
+.sidebar-menu .fa-angle-left {
+    -webkit-transition: transform var(--anim-speed-normal) var(--anim-ease-main) !important;
+    transition: transform var(--anim-speed-normal) var(--anim-ease-main) !important;
+}
+
+/* --------------------------------------------------
+   LINKS Y BOTONES (hover)
+   -------------------------------------------------- */
+a,
+.btn,
+button,
+.waves-effect,
+.nav-link,
+.sidebar-menu>li>a {
+    -webkit-transition: background-color var(--anim-speed-fast) var(--anim-ease-main),
+        color var(--anim-speed-fast) var(--anim-ease-main),
+        box-shadow var(--anim-speed-fast) var(--anim-ease-main),
+        border-color var(--anim-speed-fast) var(--anim-ease-main),
+        opacity var(--anim-speed-fast) var(--anim-ease-main) !important;
+    transition: background-color var(--anim-speed-fast) var(--anim-ease-main),
+        color var(--anim-speed-fast) var(--anim-ease-main),
+        box-shadow var(--anim-speed-fast) var(--anim-ease-main),
+        border-color var(--anim-speed-fast) var(--anim-ease-main),
+        opacity var(--anim-speed-fast) var(--anim-ease-main) !important;
+}
+
+/* --------------------------------------------------
+   CONTROL SIDEBAR (panel lateral derecho)
+   -------------------------------------------------- */
+.control-sidebar,
+.control-sidebar-bg {
+    -webkit-transition: transform var(--anim-speed-normal) var(--anim-ease-main) !important;
+    transition: transform var(--anim-speed-normal) var(--anim-ease-main) !important;
+}
+
+/* --------------------------------------------------
+   CARDS / BOXES — hover sutil
+   -------------------------------------------------- */
+.box,
+.card {
+    transition: box-shadow var(--anim-speed-fast) var(--anim-ease-main),
+        transform var(--anim-speed-fast) var(--anim-ease-main) !important;
+}
+
+.box:hover,
+.card:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+    transform: translateY(-1px);
+}
+
+/* --------------------------------------------------
+   DROPDOWN MENUS
+   -------------------------------------------------- */
+.dropdown-menu {
+    animation: dropdownFadeIn var(--anim-speed-fast) var(--anim-ease-enter);
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------
+   ALERTAS / NOTIFICACIONES
+   -------------------------------------------------- */
+.alert {
+    animation: alertSlideIn var(--anim-speed-normal) var(--anim-ease-enter);
+}
+
+@keyframes alertSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------
+   MODALES
+   -------------------------------------------------- */
+.modal.fade .modal-dialog {
+    transition: transform var(--anim-speed-normal) var(--anim-ease-main) !important;
+}
