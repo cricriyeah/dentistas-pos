@@ -6,6 +6,7 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ServicioController;
 
 // Dashboard
 Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
@@ -27,3 +28,6 @@ Route::get('/reportes', [ReporteController::class , 'index'])->name('reportes.in
 // Autenticación
 Route::get('/login', fn() => view('auth.login'))->name('login');
 Route::get('/registro', fn() => view('auth.register'))->name('registro');
+
+// Servicios
+Route::resource('servicios', ServicioController::class);
