@@ -57,6 +57,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="treeview {{ request()->routeIs('roles.*') || request()->routeIs('permisos.*') ? 'active' : '' }}">
+                        <a href="#">
+                            <i class="mdi mdi-ticket-account"></i>
+                            <span>Roles</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="{{ route('roles.index') }}">
+                                    <i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>
+                                    Roles
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('permisos.index') }}">
+                                    <i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>
+                                    Permisos
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="header">Configuración</li>
                     <li class="treeview">
                         <a href="#">
@@ -74,7 +97,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 <div class="sidebar-widgets">
                     <div class="mx-25 mb-30 pb-20 side-bx bg-primary-light rounded20">
                         <div class="text-center">
