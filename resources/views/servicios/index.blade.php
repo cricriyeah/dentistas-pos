@@ -8,112 +8,92 @@
                 <h3 class="box-title">Servicios</h3>
                 <a href="{{ route('servicios.create') }}" class="btn btn-primary">Agregar</a>
             </div>
-
             <div class="box-body">
                 @if(session('success'))
                     <div class="alert alert-success mb-3">{{ session('success') }}</div>
                 @endif
+                <div class="box-body">
+                    @if(session('success'))
+                        <div class="alert alert-success mb-3">{{ session('success') }}</div>
+                    @endif
 
-                <div class="col-12">
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h4 class="box-title">Lista de Servicios</h4>
-                            <div class="box-controls pull-right">
-                                <div class="lookup lookup-circle lookup-right">
-                                    <input id="servicioSearch" type="text" placeholder="Buscar..." autocomplete="off">
+                    <div class="row">
+                    @forelse($servicios as $s)
+                        <div class="col-xl-4 col-lg-6 col-12 mb-4">
+                            <div class="service-card box">
+
+                                <div class="service-card-body">
+
+                                    <div class="service-header d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="service-name">
+                                            {{ $s->nombre }}
+                                            </h4>
+
+                                            @if($s->descripcion)
+                                            <p class="service-desc">
+                                            {{ Str::limit($s->descripcion, 90) }}
+                                            </p>
+                                            @endif
+                                        </div>
+
+                                        @if($s->activo)
+                                        <span class="badge bg-success">Activo</span>
+                                        @else
+                                        <span class="badge bg-secondary">Inactivo</span>
+                                        @endif
+                                    </div>
+                                    <div class="service-price mt-3">
+                                        <span class="price-label">Precio</span>
+                                        <h3 class="price-value">
+                                        {{ $s->precio !== null ? '$'.number_format($s->precio,2) : '—' }}
+                                        </h3>
+                                    </div>
+                                    <div class="service-footer d-flex justify-content-between align-items-center mt-3">
+
+                                        <span class="text-muted small">
+                                            <i class="fa fa-clock-o"></i>
+                                            {{ optional($s->created_at)->format('d/m/Y') }}
+                                        </span>
+
+                                        <div class="service-actions">
+
+                                            <a href="{{ route('servicios.show', $s) }}"
+                                                class="text-info me-3"
+                                                title="Ver">
+                                                <i class="si si-eye"></i>
+                                            </a>
+
+                                            <a href="{{ route('servicios.edit', $s) }}"
+                                                class="text-primary me-3"
+                                                title="Editar">
+                                                <i class="si si-pencil"></i>
+                                            </a>
+
+                                            <form action="{{ route('servicios.destroy',$s) }}"
+                                                method="POST"
+                                                class="d-inline"
+                                                onsubmit="return confirm('¿Eliminar este servicio?');">
+
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button class="border-0 bg-transparent text-danger">
+                                                    <i class="si si-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="box-body no-padding">
-                            <div class="table-responsive no-shadow-services">
-                                <table class="table table-hover mb-0" id="serviciosTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Orden</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Activo</th>
-                                            <th>Creado</th>
-                                            <th class="text-end mr-3" style="width:140px;">Acciones</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @forelse($servicios as $s)
-                                            <tr>
-                                                <td>{{ $s->orden }}</td>
-
-                                                <td>
-                                                    <a href="{{ route('servicios.edit', $s) }}">
-                                                        {{ $s->nombre }}
-                                                    </a>
-                                                </td>
-
-                                                <td>{{ $s->precio !== null ? '$'.number_format($s->precio, 2) : '—' }}</td>
-
-                                                <td>
-                                                    @if($s->activo)
-                                                        <span class="badge bg-success">Sí</span>
-                                                    @else
-                                                        <span class="badge bg-secondary">No</span>
-                                                    @endif
-                                                </td>
-
-                                                <td>
-                                                    <span class="text-muted">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        {{ optional($s->created_at)->format('d/m/Y') }}
-                                                    </span>
-                                                </td>
-
-                                                <td class="text-end">
-                                                    <div class="d-flex justify-content-end align-items-center gap-3">
-
-                                                        {{-- Ver detalle --}}
-                                                        <a href="{{ route('servicios.show', $s) }}"
-                                                           class="text-info fs-7"
-                                                           title="Ver detalle">
-                                                            <i class="si si-eye"></i>
-                                                        </a>
-
-                                                        {{-- Editar --}}
-                                                        <a href="{{ route('servicios.edit', $s) }}"
-                                                           class="text-primary fs-8"
-                                                           title="Editar">
-                                                            <i class="si si-pencil"></i>
-                                                        </a>
-
-                                                        {{-- Eliminar --}}
-                                                        <form action="{{ route('servicios.destroy', $s) }}"
-                                                              method="POST"
-                                                              class="d-inline"
-                                                              onsubmit="return confirm('¿Eliminar este servicio?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                    class="border-0 bg-transparent text-danger fs-8 p-0"
-                                                                    title="Eliminar">
-                                                                <i class="si si-trash"></i>
-                                                            </button>
-                                                        </form>
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <tr>
-                                                <td colspan="6" class="text-center py-4">No hay servicios registrados.</td>
-                                            </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
+                        @empty
+                        <div class="col-12 text-center py-5">
+                            <h5>No hay servicios registrados</h5>
                         </div>
-
+                    @endforelse
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -151,3 +131,58 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 @endpush
+
+<style>
+
+.service-card{
+border-radius:12px;
+transition:.25s;
+box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+.service-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.service-card-body{
+padding:20px;
+}
+
+.service-name{
+font-weight:600;
+margin-bottom:4px;
+}
+
+.service-desc{
+font-size:13px;
+color:#6c757d;
+margin-bottom:0;
+}
+
+.service-price{
+border-top:1px solid #eee;
+padding-top:12px;
+}
+
+.price-label{
+font-size:12px;
+color:#999;
+}
+
+.price-value{
+font-weight:600;
+margin:0;
+}
+
+.service-footer{
+border-top:1px solid #eee;
+padding-top:12px;
+}
+
+.service-actions i{
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
