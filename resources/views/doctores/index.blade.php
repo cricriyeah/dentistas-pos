@@ -161,7 +161,7 @@
 
     height:85px;
 
-    background:linear-gradient(135deg,#11c5a3,#0fa88c);
+    background:linear-gradient(135deg, #93e1d8, #ADFFEC);
 
 }
 
