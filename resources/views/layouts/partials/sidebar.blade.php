@@ -37,12 +37,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="{{ request()->routeIs('reportes.*') ? 'active' : '' }}">
+                    <!-- <li class="{{ request()->routeIs('reportes.*') ? 'active' : '' }}">
                         <a href="{{ route('reportes.index') }}">
                             <i class="mdi mdi-file-document"></i>
                             <span>Reportes</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="treeview {{ request()->routeIs('doctores.*') ? 'active' : '' }}">
                         <a href="#">
                             <i class="mdi mdi-pill"></i>
@@ -57,7 +57,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="treeview {{ request()->routeIs('roles.*') || request()->routeIs('permisos.*') ? 'active' : '' }}">
+                    <!-- <li class="treeview {{ request()->routeIs('roles.*') || request()->routeIs('permisos.*') ? 'active' : '' }}">
                         <a href="#">
                             <i class="mdi mdi-ticket-account"></i>
                             <span>Roles</span>
@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="header">Configuración</li>
                     <li class="treeview">
                         <a href="#">
@@ -90,29 +90,18 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{ route('login') }}"><i class="icon-Commit"><span class="path1"></span><span
-                                            class="path2"></span></i>Iniciar Sesión</a></li>
-                            <li><a href="{{ route('registro') }}"><i class="icon-Commit"><span
-                                            class="path1"></span><span class="path2"></span></i>Registrarse</a></li>
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    <i class="icon-Commit">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    Iniciar Sesión
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-                <div class="sidebar-widgets">
-                    <div class="mx-25 mb-30 pb-20 side-bx bg-primary-light rounded20">
-                        <div class="text-center">
-                            <img src="{{ asset('images/svg-icon/color-svg/custom-17.svg') }}" class="sideimg p-5"
-                                alt="">
-                            <h4 class="title-bx text-primary">Agendar Cita</h4>
-                            <a href="{{ route('citas.index') }}" class="py-10 fs-14 mb-0 text-primary">
-                                Atención médica disponible <i class="mdi mdi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="copyright text-center m-25">
-                        <p><strong class="d-block">Detistas POS</strong> © {{ date('Y') }} Todos los derechos reservados
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
