@@ -1,0 +1,76 @@
+/* =========================
+   SIDEBAR - Fondo blanco
+========================= */
+
+.main-sidebar,
+.main-sidebar .sidebar,
+.main-sidebar .multinav,
+.main-sidebar .multinav-scroll {
+    background: #ffffff !important;
+}
+
+
+/* =========================
+   Links del menú
+========================= */
+
+.sidebar-menu > li > a {
+    color: #374151;
+    font-weight: 500;
+    padding: 12px 18px;
+    border-radius: 6px;
+    transition: all .2s ease;
+}
+
+
+/* Hover */
+
+.sidebar-menu > li > a:hover {
+    background: #F6F5FD;
+    color: #111827;
+}
+
+
+/* Item activo */
+
+.sidebar-menu > li.active > a {
+    background: #E6F5FF;
+    color: #1f2937;
+}
+
+
+/* Iconos */
+
+.sidebar-menu i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+/* Submenú */
+
+.treeview-menu {
+    background: #ffffff;
+}
+
+.treeview-menu li a {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+
+/* Header */
+
+.sidebar-menu .header {
+    color: #9ca3af;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 15px 18px 6px 18px;
+}
+
+
+/* Separación */
+
+.sidebar-menu li {
+    margin-bottom: 4px;
+}
