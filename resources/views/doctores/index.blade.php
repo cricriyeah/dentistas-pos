@@ -1,247 +1,126 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', 'Doctores')
 
-<div class="container">
-
-<div class="d-flex justify-content-between align-items-center mb-30">
-    <h3 class="box-title">Doctores</h3>
-
-    <a href="#" class="btn btn-primary">
-        Agregar Doctor
-    </a>
-</div>
-
-
-<div class="row">
-
-
-{{-- DOCTOR CARD --}}
-<div class="col-xl-3 col-lg-4 col-md-6 col-12">
-
-<a href="#" class="doctor-card-link">
-
-<div class="doctor-card">
-
-    <div class="doctor-header"></div>
-
-    <div class="doctor-photo">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-    </div>
-
-    <div class="doctor-body">
-
-        <h4 class="doctor-name">
-            Dr. Juan Pérez
-        </h4>
-
-        <p class="doctor-specialty">
-            Ortodoncia
-        </p>
-
-
-        <div class="doctor-info">
-
-            <p>
-                <i class="fa fa-envelope"></i>
-                juan@clinica.com
-            </p>
-
-            <p>
-                <i class="fa fa-phone"></i>
-                624 123 4567
-            </p>
-
-            <p>
-                <i class="fa fa-clock-o"></i>
-                Lun - Vie 9:00 - 17:00
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</a>
-
-</div>
-
-
-
-{{-- DOCTOR CARD --}}
-<div class="col-xl-3 col-lg-4 col-md-6 col-12">
-
-<a href="#" class="doctor-card-link">
-
-<div class="doctor-card">
-
-    <div class="doctor-header"></div>
-
-    <div class="doctor-photo">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-    </div>
-
-    <div class="doctor-body">
-
-        <h4 class="doctor-name">
-            Dra. María López
-        </h4>
-
-        <p class="doctor-specialty">
-            Odontología General
-        </p>
-
-        <div class="doctor-info">
-
-            <p>
-                <i class="fa fa-envelope"></i>
-                maria@clinica.com
-            </p>
-
-            <p>
-                <i class="fa fa-phone"></i>
-                624 555 9876
-            </p>
-
-            <p>
-                <i class="fa fa-clock-o"></i>
-                Lun - Sab 10:00 - 18:00
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</a>
-
-</div>
-
-
-
-</div>
-</div>
-
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/doctores.css') }}">
 @endsection
 
-<style>
+@section('content')
+<div class="doctors-page">
 
-.doctor-card-link{
-    text-decoration:none;
-    color:inherit;
-}
+    <div class="doctors-header">
+        <div>
+            <h1 class="doctors-title">Doctores</h1>
+            <p class="doctors-subtitle">Consulta y administra el personal médico de la clínica</p>
+        </div>
 
-.doctor-card{
+        <a href="#" class="btn-ui btn-ui-primary">
+            Agregar doctor
+        </a>
+    </div>
 
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    text-align:center;
+    <div class="doctors-grid">
 
-    transition:.25s;
+        <div class="doctor-col">
+            <a href="#" class="doctor-card-link">
+                <div class="doctor-card">
 
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+                    <div class="doctor-card-top"></div>
 
-}
+                    <div class="doctor-avatar-wrap">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Juan Pérez" class="doctor-avatar">
+                    </div>
 
-.doctor-card:hover{
+                    <div class="doctor-card-body">
+                        <h3 class="doctor-name">Dr. Juan Pérez</h3>
+                        <p class="doctor-specialty">Ortodoncia</p>
 
-    transform:translateY(-6px);
+                        <div class="doctor-info-list">
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-envelope"></i></span>
+                                <span>juan@clinica.com</span>
+                            </div>
 
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-phone"></i></span>
+                                <span>624 123 4567</span>
+                            </div>
 
-}
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-clock-o"></i></span>
+                                <span>Lun - Vie 9:00 - 17:00</span>
+                            </div>
+                        </div>
 
+                        <div class="doctor-card-actions">
+                            <span class="badge-ui badge-ui-success">Activo</span>
 
-/* HEADER COLOR */
+                            <div class="table-actions">
+                                <span class="action-btn action-btn-info">
+                                    <i class="si si-eye"></i>
+                                </span>
+                                <span class="action-btn action-btn-primary">
+                                    <i class="si si-pencil"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-.doctor-header{
+                </div>
+            </a>
+        </div>
 
-    height:85px;
+        <div class="doctor-col">
+            <a href="#" class="doctor-card-link">
+                <div class="doctor-card">
 
-    background:linear-gradient(135deg, #93e1d8, #ADFFEC);
+                    <div class="doctor-card-top"></div>
 
-}
+                    <div class="doctor-avatar-wrap">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dra. María López" class="doctor-avatar">
+                    </div>
 
+                    <div class="doctor-card-body">
+                        <h3 class="doctor-name">Dra. María López</h3>
+                        <p class="doctor-specialty">Odontología General</p>
 
-/* FOTO */
+                        <div class="doctor-info-list">
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-envelope"></i></span>
+                                <span>maria@clinica.com</span>
+                            </div>
 
-.doctor-photo{
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-phone"></i></span>
+                                <span>624 555 9876</span>
+                            </div>
 
-    margin-top:-50px;
+                            <div class="doctor-info-item">
+                                <span class="doctor-info-icon"><i class="fa fa-clock-o"></i></span>
+                                <span>Lun - Sab 10:00 - 18:00</span>
+                            </div>
+                        </div>
 
-}
+                        <div class="doctor-card-actions">
+                            <span class="badge-ui badge-ui-success">Activo</span>
 
-.doctor-photo img{
+                            <div class="table-actions">
+                                <span class="action-btn action-btn-info">
+                                    <i class="si si-eye"></i>
+                                </span>
+                                <span class="action-btn action-btn-primary">
+                                    <i class="si si-pencil"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-    width:100px;
-    height:100px;
+                </div>
+            </a>
+        </div>
 
-    border-radius:50%;
+    </div>
 
-    border:5px solid white;
-
-    object-fit:cover;
-
-}
-
-
-/* BODY */
-
-.doctor-body{
-
-    padding:20px;
-
-}
-
-
-.doctor-name{
-
-    margin-top:10px;
-    font-weight:600;
-
-    color:#2b3d4f;
-
-}
-
-
-.doctor-specialty{
-
-    color:#11c5a3;
-
-    font-weight:500;
-
-    margin-bottom:15px;
-
-}
-
-
-/* INFO */
-
-.doctor-info{
-
-    text-align:left;
-
-    font-size:13px;
-
-}
-
-
-.doctor-info p{
-
-    margin-bottom:6px;
-
-}
-
-
-.doctor-info i{
-
-    width:18px;
-
-    color:#11c5a3;
-
-}
-
-</style>
+</div>
+@endsection
