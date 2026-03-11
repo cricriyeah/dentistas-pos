@@ -105,7 +105,7 @@
                                     <i class="si si-eye"></i>
                                 </a>
 
-                                <a href="#" class="action-btn action-btn-primary" title="Editar">
+                                <a href="{{ route('pacientes.edit', 1) }}" class="action-btn action-btn-primary" title="Editar">
                                     <i class="si si-pencil"></i>
                                 </a>
 
@@ -133,7 +133,7 @@
                         <td>6245558899</td>
                         <td class="text-end">
                             <div class="table-actions justify-content-end">
-                                <a href="#" class="action-btn action-btn-info" title="Ver">
+                                <a href="{{ route('pacientes.show', 1) }}" class="action-btn action-btn-info" title="Ver">
                                     <i class="si si-eye"></i>
                                 </a>
 

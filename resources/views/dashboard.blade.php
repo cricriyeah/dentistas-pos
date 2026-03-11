@@ -43,7 +43,7 @@
 
         <div class="col-lg-4 col-md-12 col-12 mb-3">
             <div class="minimal-card stat-card">
-                <div class="stat-label">Total de cirugías</div>
+                <div class="stat-label">Total de citas</div>
                 <div class="stat-value">245</div>
                 <span class="stat-chip chip-red">Histórico</span>
             </div>

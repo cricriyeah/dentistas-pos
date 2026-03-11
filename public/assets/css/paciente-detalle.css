@@ -1,0 +1,466 @@
+.patient-view-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.patient-view-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.patient-view-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.patient-view-subtitle {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: #7a86a8;
+}
+
+.patient-view-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.patient-section-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid #ededf8;
+    border-radius: 14px;
+}
+
+.patient-section-link {
+    text-decoration: none;
+    color: #68738f;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: all .2s ease;
+}
+
+.patient-section-link:hover {
+    background: #f6f5fd;
+    color: #1f2a44;
+}
+
+.patient-section-link.active {
+    background: #e6f5ff;
+    color: #1f2a44;
+}
+
+.patient-view-card,
+.patient-panel {
+    background: #ffffff;
+    border: 1px solid #ededf8;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.patient-top-layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.patient-photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.patient-photo-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #e6f5ff;
+    border: 1px solid #ededf8;
+}
+
+.patient-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.patient-status-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #1f2a44;
+    font-weight: 500;
+}
+
+.patient-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #86e7b8;
+    display: inline-block;
+}
+
+.patient-name-block {
+    margin-bottom: 18px;
+}
+
+.patient-full-name {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.patient-register-text {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #7a86a8;
+}
+
+.patient-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.view-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.view-field label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #7a86a8;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 0;
+}
+
+.view-field-value {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    background: #f6f5fd;
+    border: 1px solid #ededf8;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2a44;
+    line-height: 1.5;
+}
+
+.view-field-value.multiline {
+    min-height: 70px;
+    align-items: flex-start;
+}
+
+.field-span-2 {
+    grid-column: span 2;
+}
+
+.patient-view-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.patient-side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.patient-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.patient-panel-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.patient-panel-subtitle {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #7a86a8;
+}
+
+.panel-link {
+    text-decoration: none;
+    color: #5caee6;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.panel-link:hover {
+    color: #3d98d6;
+}
+
+.odontogram-preview-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background: #f6f5fd;
+    border: 1px solid #ededf8;
+    border-radius: 14px;
+}
+
+.odontogram-arch {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.tooth-mini {
+    height: 38px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ededf8;
+    color: #1f2a44;
+    background: #ffffff;
+}
+
+.tooth-mini.healthy {
+    background: #d9ffed;
+}
+
+.tooth-mini.warning {
+    background: #e6f5ff;
+}
+
+.tooth-mini.treated {
+    background: #a3d9ff;
+}
+
+.tooth-mini.missing {
+    background: #ffd6d5;
+}
+
+.odontogram-divider-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7a86a8;
+}
+
+.odontogram-legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #68738f;
+    font-weight: 600;
+}
+
+.legend-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.legend-dot.healthy {
+    background: #86e7b8;
+}
+
+.legend-dot.warning {
+    background: #e6f5ff;
+}
+
+.legend-dot.treated {
+    background: #a3d9ff;
+}
+
+.legend-dot.missing {
+    background: #ff7270;
+}
+
+.mini-treatment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mini-treatment-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f6f5fd;
+    border: 1px solid #ededf8;
+}
+
+.mini-treatment-tooth {
+    display: block;
+    font-size: 14px;
+    color: #1f2a44;
+    margin-bottom: 4px;
+}
+
+.mini-treatment-text {
+    margin: 0;
+    font-size: 13px;
+    color: #68738f;
+    line-height: 1.5;
+}
+
+.mini-treatment-badge {
+    white-space: nowrap;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+.mini-treatment-badge.pending {
+    background: #ffd6d5;
+}
+
+.mini-treatment-badge.process {
+    background: #e6f5ff;
+}
+
+.mini-treatment-badge.done {
+    background: #d9ffed;
+}
+
+.notes-timeline-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.note-mini-item {
+    position: relative;
+    padding-left: 16px;
+    border-left: 2px solid #ededf8;
+}
+
+.note-mini-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #a3d9ff;
+}
+
+.note-mini-date {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5caee6;
+}
+
+.note-mini-text {
+    margin: 0;
+    font-size: 13px;
+    color: #68738f;
+    line-height: 1.55;
+}
+
+@media (max-width: 1200px) {
+    .patient-view-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .patient-top-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-photo-col {
+        max-width: 220px;
+    }
+
+    .patient-fields-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .odontogram-arch {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .patient-full-name {
+        font-size: 24px;
+    }
+
+    .patient-view-card,
+    .patient-panel {
+        padding: 16px;
+    }
+
+    .patient-fields-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field-span-2 {
+        grid-column: span 1;
+    }
+
+    .mini-treatment-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .patient-section-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .odontogram-arch {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

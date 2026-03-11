@@ -16,6 +16,13 @@ Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
 // Pacientes
 Route::get('/pacientes', [PacienteController::class , 'index'])->name('pacientes.index');
 Route::get('/pacientes/{id}', [PacienteController::class , 'show'])->name('pacientes.show');
+Route::get('/pacientes/{id}/odontograma', [PacienteController::class, 'odontograma'])->name('pacientes.odontograma');
+Route::get('/pacientes/{id}/plan-tratamiento', [PacienteController::class, 'planTratamiento'])
+    ->name('pacientes.plan-tratamiento');
+Route::get('/pacientes/{id}/notas', [PacienteController::class, 'notas'])
+    ->name('pacientes.notas');
+Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name('pacientes.edit');
+
 
 // Doctores
 Route::get('/doctores', [DoctorController::class , 'index'])->name('doctores.index');
